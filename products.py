@@ -34,10 +34,15 @@ class Product:
 
     def buy(self, quantity):
         if quantity <= 0:
-            raise ValueError("Quantity cannot be negative or None")
+            raise ValueError("Quantity must be greater than 0")
+        if quantity > self.quantity:
+            raise ValueError(f"Not enough stock for {self.name}. Requested {quantity}, available {self.quantity}.")
+
         self.quantity -= quantity
-        total_price = quantity * self.price
-        return total_price
+        if self.quantity == 0:
+            self.deactivate()
+
+        return quantity * self.price
 
 
 
