@@ -1,4 +1,5 @@
 class Product:
+    """Product class that manages inventory per item"""
     def __init__(self, name, price, quantity):
         self.name = name
         self.price = price
@@ -30,7 +31,7 @@ class Product:
         self.active = False
 
     def show(self):
-        print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
+        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
     def buy(self, quantity):
         if quantity <= 0:
@@ -42,7 +43,5 @@ class Product:
         if self.quantity == 0:
             self.deactivate()
 
-        return quantity * self.price
-
-
-
+        total_price = self.price * quantity
+        return total_price

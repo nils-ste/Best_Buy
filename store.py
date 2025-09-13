@@ -1,5 +1,6 @@
 class Store:
-    def __init__(self, products = []):
+    """Store class, that manages inventory per store"""
+    def __init__(self, products=None):
         self.products = products
 
     def add_product(self, product):
@@ -38,7 +39,4 @@ class Store:
         total_price = 0
         for product, amount in shopping_list:
             total_price += product.buy(amount)
-
         return total_price
-
-
